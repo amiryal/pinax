@@ -458,7 +458,7 @@ class ChangeLanguageForm(AccountForm):
     language = forms.ChoiceField(
         label = _("Language"),
         required = True,
-        choices = settings.LANGUAGES
+        choices = map(lambda (s, t): (s, ugettext(t)), settings.LANGUAGES)
     )
     
     def __init__(self, *args, **kwargs):
